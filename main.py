@@ -13,8 +13,9 @@ def parse_input(file_name):
 
     f.readline()
     for index, value in enumerate(f):
-        ingredient_list = value.split(" ")
-        ingredient_list[-1] = ingredient_list[-1].rstrip()
+        ingredient_list = value.rstrip()
+        ingredient_list = ingredient_list.split(" ")[1:]
+
         if not index % 2:
             loves.append(ingredient_list)
         else:
