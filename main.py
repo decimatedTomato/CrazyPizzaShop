@@ -2,7 +2,7 @@
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
+from src.customer import Customer
 
 def parse_input(file_name):
     # open file
@@ -21,12 +21,11 @@ def parse_input(file_name):
             dislikes.append(ingredient_list)
 
     # Create instances of customer
-    for customer in loves:
+    for current in range(len(loves)):
+        cust1 = Customer(tuple(loves[current]), tuple(dislikes[current]))
+        print(cust1)
 
-    print(loves)
-    print(dislikes)
 
-    # close file
     f.close()
 
 
