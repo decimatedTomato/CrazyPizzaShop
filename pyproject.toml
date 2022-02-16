@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "crazy_pizza_shop"
+version = "0.1.0"
+description = "Just some arrogant pizza shop"
+authors = ["","Minh Tran <33189614+minhtrancccp@users.noreply.github.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+black = {version = "^22.1.0", allow-prereleases = true}
+isort = {version = "^5.10.1", allow-prereleases = true}
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
