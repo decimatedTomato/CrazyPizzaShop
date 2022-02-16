@@ -1,1 +1,6 @@
+# . files and . folders
+.*
+!/.gitignore
 
+# __ folders
+__*/
