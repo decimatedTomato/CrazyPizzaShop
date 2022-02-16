@@ -12,19 +12,22 @@ def parse_input(file_name):
     dislikes = []
 
     f.readline()
-    for index in enumerate(f):
-        c = x.split(" ")
-        for y in c:
-            y[len(y) - 1].rstrip()
-        if not (index % 2):
-            loves.append(c)
+    for index, value in enumerate(f):
+        ingredient_list = value.split(" ")
+        ingredient_list[-1] = ingredient_list[-1].rstrip()
+        if not index % 2:
+            loves.append(ingredient_list)
         else:
-            dislikes.append(c)
+            dislikes.append(ingredient_list)
 
     # Create instances of customer
+    for customer in loves:
+
+    print(loves)
+    print(dislikes)
 
     # close file
-    pass
+    f.close()
 
 
 # Press the green button in the gutter to run the script.
