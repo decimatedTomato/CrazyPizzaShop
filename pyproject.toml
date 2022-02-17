@@ -6,10 +6,13 @@ authors = ["","Minh Tran <33189614+minhtrancccp@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+
+[tool.poetry.dev-dependencies]
 black = {version = "^22.1.0", allow-prereleases = true}
 isort = {version = "^5.10.1", allow-prereleases = true}
 
-[tool.poetry.dev-dependencies]
+[tool.isort]
+profile = "black"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
