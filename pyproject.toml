@@ -2,7 +2,7 @@
 name = "crazy_pizza_shop"
 version = "0.1.0"
 description = "Just some arrogant pizza shop"
-authors = ["","Minh Tran <33189614+minhtrancccp@users.noreply.github.com>"]
+authors = ["", "", "Minh Tran <33189614+minhtrancccp@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
