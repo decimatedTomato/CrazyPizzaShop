@@ -27,7 +27,10 @@ def main():
         Customer(("shrimp", "potato"), ("egg",)),
     ]
 
+    result: Graph = maximum_independent_set(customers)
+    pprint([*result.nodes.data()])
 
+    pprint(result.nodes[1])
 
 
 if __name__ == "__main__":
