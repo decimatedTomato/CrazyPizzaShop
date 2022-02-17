@@ -56,7 +56,6 @@ def extract_customer_preferences(path):
         f.readline()
         for index, value in enumerate(f):
             ingredient_list = value.rstrip()
-            # ? Not needed to specify what to split here?
             ingredient_list = ingredient_list.split(" ")[1:]
 
             if not index % 2:
@@ -67,9 +66,9 @@ def extract_customer_preferences(path):
         # Create instances of customer
         customers = []
         for current in range(len(loves)):
-            cust1 = Customer(tuple(loves[current]), tuple(dislikes[current]))
-            print(cust1)
-
+            cur_customer = Customer(tuple(loves[current]), tuple(dislikes[current]))
+            customers.append(cur_customer)
+    maximum_independent_set(customers)
 
 def char_range(c1, c2):
     """Generates the characters from `c1` to `c2`, inclusive."""
