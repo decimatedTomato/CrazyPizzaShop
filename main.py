@@ -1,7 +1,13 @@
+# This is a sample Python script.
+
+# Press Shift+F10 to execute it or replace it with your code.
+# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from src.customer import Customer
+
 # for file management:
 from pathlib import Path
 
-from src.customer import Customer
+from src.nodes import maximum_independent_set
 
 
 def parse_input(dir):
@@ -50,7 +56,6 @@ def extract_customer_preferences(path):
         f.readline()
         for index, value in enumerate(f):
             ingredient_list = value.rstrip()
-            # ? Not needed to specify what to split here?
             ingredient_list = ingredient_list.split(" ")[1:]
 
             if not index % 2:
@@ -59,11 +64,11 @@ def extract_customer_preferences(path):
                 dislikes.append(ingredient_list)
 
         # Create instances of customer
+        customers = []
         for current in range(len(loves)):
-            # ? I've modified the params' requirements to be more flexible, so you don't have to change to tuple
-            cust1 = Customer(tuple(loves[current]), tuple(dislikes[current]))
-            print(cust1)
-
+            cur_customer = Customer(tuple(loves[current]), tuple(dislikes[current]))
+            customers.append(cur_customer)
+    maximum_independent_set(customers)
 
 def char_range(c1, c2):
     """Generates the characters from `c1` to `c2`, inclusive."""
