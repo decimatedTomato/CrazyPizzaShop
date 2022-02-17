@@ -4,32 +4,67 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 from src.customer import Customer
 
+# for file management:
+from pathlib import Path
 
-def parse_input(file_name):
+
+def parse_input(dir):
     # TODO: Parse input file with a dir
-    f = open("a_an_example.in.txt", "r")
+    working_dir = Path.cwd()
+    # TODO: create data folder if it does not exist
+
+    # warn the user that data is empty/does not exist
+    target_dir = working_dir / dir
+    if not target_dir.is_dir():
+        print("You are missing a data folder in this directory.")
+
+    valid_files: int = 0
+    for file in target_dir.iterdir():
+        if file.suffix == '.txt':
+            pass
+            # print(file)
+            # valid_files += 1
+
+    input_letter = input("Enter the file you want to use's corresponding letter\n")
+    while True:
+        if input_letter == "exit":
+            exit()
+        if input_letter in char_range('a', 'e'):
+            # stop iterating at input_letter
+            for file in target_dir.iterdir():
+                if file.suffix == '.txt' and file.name[0] == input_letter:
+                    print(file.name)
+                    Extract_Customer_Preferences(target_dir / file.name)
+            break
+        input_letter = input("Enter a letter in the range \'a\' to \'e\' or exit.\n")
+
+def Extract_Customer_Preferences(path):
+    # f = open("a_an_example.in.txt", "r")
     # print the file into terminal
     loves = []
     dislikes = []
 
-    f.readline()
-    for index, value in enumerate(f):
-        ingredient_list = value.rstrip()
-        ingredient_list = ingredient_list.split(" ")[1:]
+    with open(path, mode='r') as f:
+        f.readline()
+        for index, value in enumerate(f):
+            ingredient_list = value.rstrip()
+            ingredient_list = ingredient_list.split(" ")[1:]
 
-        if not index % 2:
-            loves.append(ingredient_list)
-        else:
-            dislikes.append(ingredient_list)
+            if not index % 2:
+                loves.append(ingredient_list)
+            else:
+                dislikes.append(ingredient_list)
 
-    # Create instances of customer
-    for current in range(len(loves)):
-        cust1 = Customer(tuple(loves[current]), tuple(dislikes[current]))
-        print(cust1)
+        # Create instances of customer
+        for current in range(len(loves)):
+            cust1 = Customer(tuple(loves[current]), tuple(dislikes[current]))
+            print(cust1)
 
-    f.close()
-
+def char_range(c1, c2):
+    """Generates the characters from `c1` to `c2`, inclusive."""
+    for c in range(ord(c1), ord(c2)+1):
+        yield chr(c)
 
 # Press the green button in the gutter to run the script.
 if __name__ == "__main__":
-    parse_input("")
+    parse_input("data")

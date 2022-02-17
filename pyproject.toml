@@ -2,13 +2,10 @@
 name = "crazy_pizza_shop"
 version = "0.1.0"
 description = "Just some arrogant pizza shop"
-authors = ["", "", "Minh Tran <33189614+minhtrancccp@users.noreply.github.com>"]
+authors = ["Tolga Kavuncu <https://github.com/ThatTogapi>", "Tom Becker <https://github.com/decimatedTomato>","Minh Tran <33189614+minhtrancccp@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-networkx = {version = "^2.6.3", allow-prereleases = true}
-
-[tool.poetry.dev-dependencies]
 black = {version = "^22.1.0", allow-prereleases = true}
 isort = {version = "^5.10.1", allow-prereleases = true}
 
