@@ -7,6 +7,8 @@ from src.customer import Customer
 # for file management:
 from pathlib import Path
 
+from src.nodes import maximum_independent_set
+
 
 def parse_input(dir):
     # TODO: Parse input file with a dir
@@ -25,7 +27,7 @@ def parse_input(dir):
             # print(file)
             # valid_files += 1
 
-    input_letter = input("Enter the file you want to use's corresponding letter\n")
+    input_letter = input("Enter the file you want to use's corresponding letter:\n")
     while True:
         if input_letter == "exit":
             exit()
@@ -56,9 +58,12 @@ def Extract_Customer_Preferences(path):
                 dislikes.append(ingredient_list)
 
         # Create instances of customer
+        customers = []
         for current in range(len(loves)):
-            cust1 = Customer(tuple(loves[current]), tuple(dislikes[current]))
-            print(cust1)
+            cur_customer = Customer(loves[current], dislikes[current])
+            customers.append(cur_customer)
+
+    maximum_independent_set(customers)
 
 def char_range(c1, c2):
     """Generates the characters from `c1` to `c2`, inclusive."""
